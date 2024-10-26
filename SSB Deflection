@@ -1,0 +1,26 @@
+def calculate_deflection(P, L, E, I):
+    """
+    Calculate the maximum deflection of a simply supported beam under a point load at the center.
+    
+    Parameters:
+    P (float): Load applied at the center (in Newtons).
+    L (float): Length of the beam (in meters).
+    E (float): Modulus of elasticity of the material (in Pascals).
+    I (float): Second moment of area (in meters^4).
+    
+    Returns:
+    float: Maximum deflection at the center of the beam (in meters).
+    """
+    # Calculate deflection
+    delta_max = (P * L**3) / (48 * E * I)
+    return delta_max
+
+# Example values
+P = 500  # load in Newtons
+L = 2    # length in meters
+E = 2.1e11  # modulus of elasticity for steel in Pascals
+I = 8.333e-6  # second moment of area for a rectangular cross-section in meters^4
+
+# Calculate maximum deflection
+deflection = calculate_deflection(P, L, E, I)
+print(f"Maximum deflection at the center: {deflection:.6f} meters")
